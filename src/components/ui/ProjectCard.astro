@@ -6,7 +6,7 @@ const { project, large = false } = Astro.props;
 <article class:list={['project-card', large && 'project-card--large']} data-category={project.data.category}>
   <a class="cover" href={`/projects/${project.id}/`} aria-label={`查看项目：${project.data.title}`}>
     <img src={project.data.cover} alt={`${project.data.title} 项目封面占位图`} loading="lazy" />
-    <span class="view">查看案例 ↗</span>
+    <span class="view">查看项目 ↗</span>
   </a>
   <div class="card-meta"><span>{project.data.category}</span><span>{project.data.year}</span></div>
   <h3><a href={`/projects/${project.id}/`}>{project.data.title}</a></h3>
@@ -17,12 +17,10 @@ const { project, large = false } = Astro.props;
   .project-card { min-width: 0; }
   .cover { position: relative; display: block; aspect-ratio: 4 / 3; overflow: hidden; background: var(--paper-deep); }
   .project-card--large .cover { aspect-ratio: 16 / 10; }
-  img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.2,.65,.2,1), filter .4s; }
-  .cover:hover img { transform: scale(1.025); filter: saturate(.85); }
-  .view { position: absolute; right: 1rem; bottom: 1rem; padding: .6rem .85rem; border-radius: 999px; background: var(--paper); color: var(--ink); font-size: .7rem; opacity: 0; transform: translateY(.5rem); transition: opacity .25s, transform .25s; }
-  .cover:hover .view { opacity: 1; transform: none; }
+  img { width: 100%; height: 100%; object-fit: cover; }
+  .view { position: absolute; right: 1rem; bottom: 1rem; padding: .6rem .85rem; border-radius: .4rem; background: var(--paper); color: var(--sage); font-size: .7rem; }
   .card-meta { display: flex; justify-content: space-between; margin-top: 1.1rem; color: var(--sage-dark); font-size: .67rem; letter-spacing: .08em; text-transform: uppercase; }
-  h3 { margin: .55rem 0 .45rem; font-family: var(--font-serif); font-size: clamp(1.55rem, 3vw, 2.25rem); font-weight: 400; letter-spacing: -.025em; line-height: 1.1; }
+  h3 { margin: .55rem 0 .45rem; font-size: clamp(1.2rem, 2.5vw, 1.5rem); font-weight: 650; line-height: 1.3; }
   h3 a:hover { color: var(--sage-dark); }
   p { max-width: 600px; margin: 0; color: var(--muted); font-size: .86rem; }
   .tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1rem; }

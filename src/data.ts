@@ -1,51 +1,45 @@
 export const site = {
-  name: '你的名字',
+  name: '雨轩',
   role: 'Shopify 独立站运营',
-  email: 'hello@example.com',
-  location: '中国 · 支持远程协作',
+  email: 'iris0914ovo@gmail.com',
+  location: '所在地待补充',
   description:
-    '专注 Shopify 建站、独立站增长、Google / Meta 广告、SEO 与 AI 运营自动化。',
-  availability: '正在寻找独立站运营与增长方向的新机会',
+    '雨轩的个人求职网站，整理独立站运营相关的工作经历、技能与项目实践。',
+  availability: '求职方向：Shopify / 跨境电商独立站运营',
 };
 
 export const capabilities = [
   {
     index: '01',
-    title: 'Shopify 建站',
-    text: '从信息架构、主题配置到转化路径，搭建兼顾品牌表达与商业目标的独立站。',
-    tags: ['Theme', 'CRO', 'UX'],
+    title: 'Shopify 站点运营',
+    text: '接触过主题配置、产品上架、页面调整和日常维护，关注网站在手机端的使用体验。',
+    tags: ['Shopify', '产品上架', '页面优化'],
   },
   {
     index: '02',
-    title: '广告与增长',
-    text: '围绕用户旅程规划 Google 与 Meta 投放，建立可复盘的测试和迭代机制。',
-    tags: ['Google Ads', 'Meta Ads', 'Analytics'],
+    title: '广告投放',
+    text: '有 Google Ads 和 Meta Ads 的基础投放与优化实践，能够整理素材、落地页和投放数据。',
+    tags: ['Google Ads', 'Meta Ads', 'GA4'],
   },
   {
     index: '03',
-    title: 'SEO 与自然流量',
-    text: '用技术 SEO、内容策略和站内结构积累可持续的搜索资产与品牌流量。',
-    tags: ['Technical SEO', 'Content', 'GSC'],
+    title: 'SEO 与内容运营',
+    text: '参与关键词整理、页面内容优化和内容发布，使用 GA4、Search Console 查看基础数据。',
+    tags: ['SEO', '内容运营', 'Search Console'],
   },
   {
     index: '04',
-    title: 'AI 运营自动化',
-    text: '把重复流程沉淀为可靠的 AI 工作流，让团队把时间投入判断与创意。',
-    tags: ['Workflow', 'Automation', 'AI Ops'],
+    title: 'AI 工具与自动化',
+    text: '使用 n8n 和 AI 工具尝试整理重复性工作流程，也了解 HTML、CSS 等基础前端技术。',
+    tags: ['n8n', 'AI 工具', '基础前端'],
   },
 ];
 
 export const experience = [
   {
-    period: '20XX — 至今',
-    company: '公司名称（待替换）',
-    role: 'Shopify 独立站运营',
-    description: '负责站点运营、增长实验、流量获取与跨团队项目推进。敏感业务信息暂以占位内容呈现。',
-  },
-  {
-    period: '20XX — 20XX',
-    company: '公司名称（待替换）',
-    role: '海外数字营销',
-    description: '参与海外市场投放、内容运营与数据分析，持续优化从获客到转化的完整链路。',
+    period: '工作时间待补充',
+    company: '公司名称待补充',
+    role: '岗位名称待补充',
+    description: '请填写真实的任职单位、工作时间和具体职责；公开前确认信息可以披露。',
   },
 ];

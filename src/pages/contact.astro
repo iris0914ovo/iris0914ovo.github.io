@@ -2,29 +2,27 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { site } from '../data';
 ---
-<BaseLayout title="联系" description="联系我，讨论 Shopify 建站、独立站运营和增长项目。">
+<BaseLayout title="联系" description="通过邮箱联系雨轩。">
   <section class="contact-page shell reveal">
-    <p class="eyebrow">Contact</p>
-    <h1 class="page-title">好的合作，<br />从一封<em>具体的邮件</em>开始。</h1>
+    <p class="eyebrow">联系方式</p>
+    <h1 class="page-title">联系我</h1>
     <div class="contact-grid">
       <div class="contact-copy">
-        <p class="lede">如果你正在寻找独立站运营伙伴，或有一个值得认真讨论的项目，请简单介绍背景、目标和时间安排。</p>
+        <p class="lede">如果想了解我的工作经历或项目实践，欢迎通过下面的邮箱联系我。</p>
         <a href={`mailto:${site.email}`} class="email">{site.email}<span>↗</span></a>
       </div>
       <aside>
         <div><span>位置</span><p>{site.location}</p></div>
-        <div><span>回复时间</span><p>通常在 1–2 个工作日内</p></div>
         <div><span>状态</span><p>{site.availability}</p></div>
       </aside>
     </div>
   </section>
 </BaseLayout>
 <style>
-  .contact-page { min-height: calc(100svh - 88px); padding-top: clamp(4rem, 10vw, 9rem); padding-bottom: 8rem; }
-  .page-title em { color: var(--sage); font-weight: 400; }
-  .contact-grid { display: grid; grid-template-columns: 1.2fr .6fr; gap: 5rem; margin-top: 5rem; padding-top: 2.5rem; border-top: 1px solid var(--line); }
+  .contact-page { min-height: 60svh; padding-top: clamp(3rem, 7vw, 6rem); padding-bottom: 5rem; }
+  .contact-grid { display: grid; grid-template-columns: 1.2fr .6fr; gap: 3rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--line); }
   .contact-copy p { margin-top: 0; }
-  .email { display: flex; justify-content: space-between; max-width: 680px; margin-top: 3rem; padding-bottom: .8rem; border-bottom: 1px solid var(--ink); font-family: var(--font-serif); font-size: clamp(1.35rem, 4vw, 2.7rem); }
+  .email { display: flex; justify-content: space-between; max-width: 680px; margin-top: 2rem; padding-bottom: .8rem; border-bottom: 1px solid var(--sage); color: var(--sage); font-size: clamp(1.15rem, 3vw, 1.8rem); overflow-wrap: anywhere; }
   .email span { transition: transform .2s; }
   .email:hover span { transform: translate(.2rem, -.2rem); }
   aside { display: flex; flex-direction: column; gap: 1.5rem; }

@@ -5,12 +5,12 @@ import ProjectCard from '../../components/ui/ProjectCard.astro';
 const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
 const categories = ['全部', ...new Set(projects.map((item) => item.data.category))];
 ---
-<BaseLayout title="项目" description="Shopify 建站、增长投放、SEO 与 AI 运营自动化项目案例。">
+<BaseLayout title="项目经历" description="独立站运营相关的项目展示；目前为待替换的示例项目。">
   <header class="page-hero shell reveal">
-    <p class="eyebrow">Selected projects</p>
-    <h1 class="page-title">项目不是结果截图，<br /><em>而是判断的过程。</em></h1>
+    <p class="eyebrow">项目</p>
+    <h1 class="page-title">项目经历</h1>
     <div class="intro-row">
-      <p class="lede">展示我如何理解问题、组织协作并推动结果。当前内容为示例结构，不含真实客户信息或未经授权的业务数据。</p>
+      <p class="lede">这里用示例项目展示页面格式。项目名称、工作内容、截图和成果均为占位内容，后续会替换为可公开的真实经历。</p>
       <span>{String(projects.length).padStart(2, '0')} PROJECTS</span>
     </div>
   </header>
@@ -42,18 +42,17 @@ const categories = ['全部', ...new Set(projects.map((item) => item.data.catego
   }));
 </script>
 <style>
-  .page-hero { padding: clamp(4rem, 10vw, 9rem) 0 5rem; }
-  .page-title em { color: var(--sage); font-weight: 400; }
+  .page-hero { padding: clamp(3rem, 7vw, 6rem) 0 3rem; }
   .intro-row { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 2rem; margin-top: 3rem; }
   .intro-row p { margin: 0; }
   .intro-row span { color: var(--muted); font-size: .64rem; letter-spacing: .12em; }
-  .project-section { padding-top: 2rem; padding-bottom: 8rem; }
-  .filters { display: flex; flex-wrap: wrap; gap: .5rem; margin: 2rem 0 4rem; }
+  .project-section { padding-top: 1rem; padding-bottom: 5rem; }
+  .filters { display: flex; flex-wrap: wrap; gap: .5rem; margin: 2rem 0 3rem; }
   .filters button { padding: .55rem .9rem; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: var(--muted); font-size: .75rem; cursor: pointer; }
-  .filters button:hover, .filters button.active { border-color: var(--ink); background: var(--ink); color: var(--paper); }
-  .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem 2rem; }
+  .filters button:hover, .filters button.active { border-color: var(--sage); background: var(--sage); color: #fff; }
+  :global(.dark) .filters button:hover, :global(.dark) .filters button.active { color: #111827; }
+  .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem 2rem; }
   .project-grid :global([hidden]) { display: none; }
-  .project-grid :global(.project-card:nth-child(even)) { margin-top: 6rem; }
   .empty { color: var(--muted); text-align: center; }
   @media (max-width: 720px) { .intro-row, .project-grid { grid-template-columns: 1fr; } .intro-row span { display: none; } .project-grid :global(.project-card:nth-child(even)) { margin-top: 0; } }
 </style>

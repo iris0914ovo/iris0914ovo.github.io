@@ -6,42 +6,35 @@ import { site } from '../../data';
 <section class="hero shell">
   <div class="hero-top reveal">
     <p class="availability"><span></span>{site.availability}</p>
-    <p class="hero-note">策略 × 执行 × 增长<br />面向全球市场</p>
   </div>
   <h1 class="display reveal reveal-delay">
-    把独立站做成<br />品牌的<em>增长引擎。</em>
+    你好，我是<em>雨轩。</em>
   </h1>
   <div class="hero-bottom reveal reveal-delay">
-    <p>{site.description}我关心的不只是上线，而是每一次访问如何成为长期价值。</p>
+    <div>
+      <p class="hero-role">独立站运营 / Shopify / SEO / AI 自动化</p>
+      <p>目前主要从事跨境电商独立站运营，接触过 Shopify 网站搭建、产品上架、SEO 内容优化、Google / Meta 广告投放等工作，也会使用 n8n 和 AI 工具制作一些自动化流程。这个网站主要用来整理我的工作经历和项目实践。</p>
+    </div>
     <div class="hero-actions">
-      <a class="button" href="/projects/">查看项目 <ArrowIcon /></a>
-      <a class="button button--ghost" href="#contact">聊聊合作</a>
+      <a class="button" href="/projects/">查看项目经历 <ArrowIcon /></a>
+      <a class="button button--ghost" href="/about/">了解我的经历</a>
     </div>
   </div>
-  <div class="orbit" aria-hidden="true"><span>Strategy</span><span>Commerce</span><span>Growth</span></div>
 </section>
 
 <style>
-  .hero { position: relative; min-height: calc(100svh - 88px); padding-top: clamp(3rem, 8vw, 7rem); padding-bottom: 4rem; overflow: hidden; }
-  .hero-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: clamp(5rem, 12vw, 10rem); }
+  .hero { padding-top: clamp(3rem, 7vw, 6rem); padding-bottom: clamp(3.5rem, 7vw, 6rem); }
+  .hero-top { margin-bottom: clamp(2.5rem, 6vw, 5rem); }
   .availability { display: flex; align-items: center; gap: .65rem; margin: 0; color: var(--muted); font-size: .75rem; }
-  .availability span { width: .5rem; height: .5rem; border-radius: 50%; background: var(--sage); box-shadow: 0 0 0 .3rem color-mix(in srgb, var(--sage) 15%, transparent); }
-  .hero-note { margin: 0; color: var(--muted); font-size: .7rem; line-height: 1.7; letter-spacing: .08em; text-align: right; text-transform: uppercase; }
-  .hero-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: end; margin-top: 3rem; }
-  .hero-bottom > p { max-width: 540px; margin: 0; color: var(--muted); font-size: 1.05rem; }
+  .availability span { width: .5rem; height: .5rem; border-radius: 50%; background: var(--sage); }
+  .hero-bottom { display: grid; grid-template-columns: 1.25fr .75fr; gap: 2rem; align-items: end; margin-top: 1.5rem; }
+  .hero-bottom p { max-width: 700px; margin: 0; color: var(--muted); font-size: 1rem; }
+  .hero-bottom .hero-role { margin-bottom: 1rem; color: var(--ink); font-size: 1.1rem; font-weight: 600; }
   .hero-actions { display: flex; justify-content: flex-end; gap: .75rem; }
-  .orbit { position: absolute; top: 28%; right: 3%; width: 14rem; height: 14rem; border: 1px solid var(--line); border-radius: 50%; opacity: .7; animation: spin 26s linear infinite; }
-  .orbit::before { content: ''; position: absolute; inset: 2rem; border: 1px dashed var(--line); border-radius: 50%; }
-  .orbit span { position: absolute; padding: .25rem .55rem; background: var(--paper); color: var(--sage-dark); font-size: .55rem; letter-spacing: .12em; text-transform: uppercase; }
-  .orbit span:nth-child(1) { top: -.6rem; left: 50%; transform: translateX(-50%); }
-  .orbit span:nth-child(2) { right: -1.8rem; bottom: 25%; }
-  .orbit span:nth-child(3) { bottom: -.6rem; left: 18%; }
-  @keyframes spin { to { transform: rotate(360deg); } }
   @media (max-width: 720px) {
-    .hero { min-height: auto; padding-top: 2.5rem; }
-    .hero-top { margin-bottom: 5rem; }
-    .hero-note, .orbit { display: none; }
-    .hero-bottom { grid-template-columns: 1fr; margin-top: 2.5rem; }
+    .hero { padding-top: 2.5rem; }
+    .hero-top { margin-bottom: 2.5rem; }
+    .hero-bottom { grid-template-columns: 1fr; margin-top: 1.5rem; }
     .hero-actions { justify-content: flex-start; flex-wrap: wrap; }
   }
 </style>

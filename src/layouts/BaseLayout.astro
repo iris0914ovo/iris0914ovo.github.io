@@ -28,7 +28,7 @@ const socialImage = new URL(image, Astro.site);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="theme-color" content="#F8F7F4" />
+    <meta name="theme-color" content="#FFFFFF" />
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex" />}
     <link rel="canonical" href={canonical} />
@@ -44,7 +44,7 @@ const socialImage = new URL(image, Astro.site);
     <script is:inline>
       (() => {
         const saved = localStorage.getItem('theme');
-        const dark = saved === 'dark' || (!saved && matchMedia('(prefers-color-scheme: dark)').matches);
+        const dark = saved === 'dark';
         document.documentElement.classList.toggle('dark', dark);
       })();
     </script>

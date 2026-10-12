@@ -2,9 +2,9 @@
 
 一个面向求职与专业展示的中文个人作品集，使用 **Astro + TypeScript + Tailwind CSS + Markdown Content Collections** 构建，并通过 GitHub Actions 自动部署至 GitHub Pages。
 
-网站聚焦 Shopify 建站、独立站运营、Google / Meta 广告、SEO、自然流量增长与 AI 运营自动化。设计采用暖白、深灰和鼠尾草绿的编辑风格，支持响应式布局、深色模式、基础 SEO 和无障碍动效降级。
+网站用于应聘 Shopify / 跨境电商独立站运营相关岗位，展示个人介绍、技能、工作经历和项目实践。设计采用白色、深灰与蓝色，支持响应式布局、深色模式和基础 SEO。
 
-> 当前姓名、邮箱、公司、教育背景、简历和项目成果均为占位内容。发布前请按本文清单替换，并确认客户资料和业务数据已获授权。
+> 姓名“雨轩”和邮箱 `iris0914ovo@gmail.com` 已填写。公司、工作时间、教育背景、照片、正式简历及项目内容仍为占位内容，发布真实资料前请确认可以公开。
 
 ## 技术栈
 
@@ -62,16 +62,16 @@ public/
 
 编辑 `src/data.ts`：
 
-- `name`：姓名或对外使用的英文名
+- `name`：姓名或对外使用的英文名（当前为“雨轩”）
 - `role`：职位定位
-- `email`：公开联系邮箱
+- `email`：公开联系邮箱（当前为 `iris0914ovo@gmail.com`）
 - `location`：所在城市与协作方式
 - `description`：用于首页和搜索结果的职业摘要
 - `availability`：当前求职或合作状态
 - `capabilities`：核心能力说明
 - `experience`：真实工作经历
 
-导航左上角的 `Y/N` 是姓名缩写占位，位于 `src/components/layout/Header.astro`。页脚 LinkedIn 目前为 `#`，请在 `src/components/layout/Footer.astro` 中替换为真实链接。
+导航左上角显示“雨轩”，位于 `src/components/layout/Header.astro`。工作经历目前只有待补充字段，请在 `src/data.ts` 中填写真实任职信息。
 
 ### 2. About 页面
 
@@ -102,9 +102,9 @@ href="/resume/resume.pdf"
 全站视觉变量位于 `src/styles/global.css`：
 
 ```css
---paper: #f8f7f4;
---ink: #202320;
---sage: #718774;
+--paper: #ffffff;
+--ink: #202124;
+--sage: #2563eb;
 ```
 
 同一文件包含深色模式变量、排版、按钮、标签和 Markdown 正文样式。建议优先修改变量，不要在各组件中重复写颜色。
@@ -120,7 +120,7 @@ href="/resume/resume.pdf"
 title: "项目标题"
 summary: "一到两句项目摘要"
 category: "建站与体验"
-services: ["Shopify", "CRO", "数据分析"]
+services: ["Shopify", "产品上架", "页面优化"]
 year: "2026"
 client: "经授权公开的客户名，或匿名描述"
 role: "你的职责"
@@ -184,7 +184,7 @@ order: 1
 
 发布前确认：
 
-- 姓名、邮箱、社交链接和简历均已替换
+- 姓名、邮箱、工作经历、教育背景和简历均已确认
 - 示例公司、学校和项目文案已替换或明确保留为示例
 - 所有业绩数字真实、口径明确，并获得公开授权
 - 图片不含订单号、客户姓名、邮箱、广告账户 ID 或内部后台信息
