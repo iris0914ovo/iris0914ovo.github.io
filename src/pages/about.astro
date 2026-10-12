@@ -2,28 +2,28 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionHeading from '../components/ui/SectionHeading.astro';
 import ContactSection from '../components/sections/ContactSection.astro';
-import { capabilities, experience, site } from '../data';
+import { capabilities, experience } from '../data';
 ---
-<BaseLayout title="关于" description="了解我的独立站运营经验、能力结构、工作经历与教育背景。">
+<BaseLayout title="关于我" description="雨轩的个人介绍、工作经历、技能和教育背景。">
   <header class="about-hero shell reveal">
     <div>
-      <p class="eyebrow">About me</p>
-      <h1 class="page-title">既懂商业目标，<br />也愿意<em>把手弄脏。</em></h1>
+      <p class="eyebrow">关于我</p>
+      <h1 class="page-title">你好，我是<em>雨轩。</em></h1>
     </div>
     <div class="portrait" role="img" aria-label="个人照片占位区域">
-      <span>PHOTO<br />PLACEHOLDER</span>
+      <span>照片待补充</span>
     </div>
   </header>
   <section class="intro shell section-rule">
-    <p class="eyebrow">Profile</p>
+    <p class="eyebrow">个人介绍</p>
     <div>
-      <p class="big-copy">你好，我是<span>{site.name}</span>。我从事 Shopify 独立站运营，擅长在品牌、用户体验和增长效率之间找到平衡。</p>
-      <p class="lede">我喜欢从模糊的问题里建立清晰的路径：理解用户、找到关键杠杆、设计小步实验，再把有效方法沉淀成团队可以复用的流程。这里请替换为你的真实经历与职业故事。</p>
+      <p class="big-copy">我目前主要从事<span>跨境电商独立站运营</span>。</p>
+      <p class="lede">接触过 Shopify 网站搭建、产品上架、SEO 内容优化、Google / Meta 广告投放，也会使用 n8n 和 AI 工具制作一些自动化流程。这个页面用于整理我的工作经历和技能；具体任职信息待补充。</p>
       <a class="button button--ghost" href="/resume/resume-placeholder.txt" download>下载简历（占位版） ↓</a>
     </div>
   </section>
   <section class="section section-rule shell">
-    <SectionHeading eyebrow="Experience" title="工作经历" description="公司名称、时间和职责目前为保护隐私的占位内容，请按实际情况更新。" />
+    <SectionHeading eyebrow="工作经历" title="工作经历" description="任职单位、时间和职责尚未提供，以下是待补充字段。" />
     <div class="timeline">
       {experience.map((item) => (
         <article>
@@ -35,41 +35,40 @@ import { capabilities, experience, site } from '../data';
     </div>
   </section>
   <section class="section section-rule shell">
-    <SectionHeading eyebrow="Skill set" title="能力结构" />
+    <SectionHeading eyebrow="专业技能" title="主要技能" />
     <div class="skill-grid">
       {capabilities.map((item) => <article><span>{item.index}</span><h3>{item.title}</h3><p>{item.text}</p><div>{item.tags.map((tag) => <small>{tag}</small>)}</div></article>)}
     </div>
   </section>
   <section class="education section-rule shell">
-    <p class="eyebrow">Education</p>
-    <div><h2>学校名称（待替换）</h2><p>专业名称 · 学历 · 20XX—20XX</p></div>
+    <p class="eyebrow">教育背景</p>
+    <div><h2>学校名称待补充</h2><p>专业、学历和就读时间待补充</p></div>
   </section>
   <ContactSection />
 </BaseLayout>
 <style>
-  .about-hero { display: grid; grid-template-columns: 1.2fr .55fr; gap: 4rem; align-items: end; padding: clamp(4rem, 10vw, 9rem) 0 6rem; }
-  .page-title em { color: var(--sage); font-weight: 400; }
-  .portrait { aspect-ratio: 3 / 4; display: grid; place-items: center; background: linear-gradient(145deg, var(--sage-soft), var(--paper-deep)); overflow: hidden; }
-  .portrait::before { content: ''; width: 55%; aspect-ratio: 1; border: 1px solid var(--sage); border-radius: 50%; opacity: .55; transform: translate(30%, -40%); }
-  .portrait span { position: absolute; color: var(--muted); font-size: .57rem; letter-spacing: .15em; text-align: center; }
-  .intro { display: grid; grid-template-columns: .45fr 1.2fr; gap: 3rem; padding-top: 6rem; padding-bottom: 8rem; }
-  .big-copy { max-width: 880px; margin: 0 0 2rem; font-family: var(--font-serif); font-size: clamp(2rem, 4.5vw, 4rem); line-height: 1.12; letter-spacing: -.035em; }
+  .about-hero { display: grid; grid-template-columns: 1.2fr .55fr; gap: 3rem; align-items: center; padding: clamp(3rem, 7vw, 6rem) 0 3.5rem; }
+  .page-title em { color: var(--sage); font-style: normal; }
+  .portrait { aspect-ratio: 3 / 4; display: grid; place-items: center; background: var(--paper-deep); border: 1px solid var(--line); }
+  .portrait span { color: var(--muted); font-size: .85rem; }
+  .intro { display: grid; grid-template-columns: .45fr 1.2fr; gap: 3rem; padding-top: 3.5rem; padding-bottom: 4rem; }
+  .big-copy { max-width: 880px; margin: 0 0 1.5rem; font-size: clamp(1.5rem, 3vw, 2.2rem); line-height: 1.3; font-weight: 600; }
   .big-copy span { color: var(--sage); }
   .intro .button { margin-top: 2rem; }
   .timeline { border-top: 1px solid var(--line); }
-  .timeline article { display: grid; grid-template-columns: .45fr .8fr 1fr; gap: 2rem; padding: 2.25rem 0; border-bottom: 1px solid var(--line); }
+  .timeline article { display: grid; grid-template-columns: .45fr .8fr 1fr; gap: 2rem; padding: 1.5rem 0; border-bottom: 1px solid var(--line); }
   time, .company { color: var(--muted); font-size: .76rem; }
-  .timeline h3 { margin: 0; font-family: var(--font-serif); font-size: 1.5rem; font-weight: 400; }
+  .timeline h3 { margin: 0; font-size: 1.1rem; font-weight: 600; }
   .timeline p { margin: .3rem 0 0; color: var(--muted); font-size: .88rem; }
   .skill-grid { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
-  .skill-grid article { padding: 2.5rem; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .skill-grid article { padding: 1.75rem; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .skill-grid article:nth-child(even) { border-right: 0; }
-  .skill-grid span { color: var(--sage); font-family: var(--font-serif); }
-  .skill-grid h3 { margin: 1rem 0 .5rem; font-family: var(--font-serif); font-size: 1.7rem; font-weight: 400; }
+  .skill-grid span { color: var(--sage); }
+  .skill-grid h3 { margin: .6rem 0 .5rem; font-size: 1.1rem; font-weight: 600; }
   .skill-grid p { color: var(--muted); font-size: .88rem; }
   .skill-grid small { display: inline-block; margin: 1rem 1rem 0 0; color: var(--sage-dark); }
-  .education { display: grid; grid-template-columns: .45fr 1.2fr; gap: 3rem; padding-top: 5rem; padding-bottom: 7rem; }
-  .education h2 { margin: 0; font-family: var(--font-serif); font-size: 2rem; font-weight: 400; }
+  .education { display: grid; grid-template-columns: .45fr 1.2fr; gap: 3rem; padding-top: 3.5rem; padding-bottom: 4rem; }
+  .education h2 { margin: 0; font-size: 1.3rem; font-weight: 600; }
   .education p { color: var(--muted); }
   @media (max-width: 720px) { .about-hero { grid-template-columns: 1fr; } .portrait { max-width: 65%; justify-self: end; } .intro, .education { grid-template-columns: 1fr; } .timeline article { grid-template-columns: 1fr; gap: .5rem; } .skill-grid { grid-template-columns: 1fr; } .skill-grid article { padding: 2rem 0; border-right: 0; } }
 </style>

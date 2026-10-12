@@ -3,20 +3,19 @@ import { site } from '../../data';
 ---
 <section id="contact" class="contact section">
   <div class="shell contact-inner">
-    <p class="eyebrow">Start a conversation</p>
-    <h2>有一个想做好的<br /><em>独立站项目？</em></h2>
-    <p>无论是新站搭建、增长瓶颈，还是运营流程自动化，都欢迎聊聊。请在邮件中简单说明项目背景与期待。</p>
+    <p class="eyebrow">联系</p>
+    <h2>联系我</h2>
+    <p>如需了解更多工作经历或项目内容，可以通过邮件联系我。</p>
     <a class="contact-link" href={`mailto:${site.email}`}>{site.email}<span>↗</span></a>
   </div>
 </section>
 <style>
-  .contact { background: var(--sage-soft); }
+  .contact { background: var(--paper-deep); }
   .contact-inner { display: grid; grid-template-columns: .45fr 1.2fr; gap: 1rem 3rem; }
   .eyebrow { grid-row: span 3; align-self: start; }
-  h2 { margin: 0; font-family: var(--font-serif); font-size: clamp(3rem, 7vw, 6.7rem); font-weight: 400; line-height: .96; letter-spacing: -.05em; }
-  h2 em { color: var(--sage-dark); font-weight: 400; }
+  h2 { margin: 0; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 650; line-height: 1.2; }
   p:not(.eyebrow) { max-width: 580px; margin: 1.5rem 0; color: var(--muted); }
-  .contact-link { display: flex; justify-content: space-between; align-items: center; max-width: 700px; padding: 1rem 0; border-bottom: 1px solid var(--ink); font-family: var(--font-serif); font-size: clamp(1.25rem, 3vw, 2rem); }
+  .contact-link { display: flex; justify-content: space-between; align-items: center; max-width: 700px; padding: 1rem 0; border-bottom: 1px solid var(--sage); color: var(--sage); font-size: clamp(1.1rem, 2.5vw, 1.5rem); overflow-wrap: anywhere; }
   .contact-link span { transition: transform .2s; }
   .contact-link:hover span { transform: translate(.2rem, -.2rem); }
   @media (max-width: 720px) { .contact-inner { grid-template-columns: 1fr; } .eyebrow { grid-row: auto; } }
