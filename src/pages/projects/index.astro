@@ -5,12 +5,12 @@ import ProjectCard from '../../components/ui/ProjectCard.astro';
 const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
 const categories = ['全部', ...new Set(projects.map((item) => item.data.category))];
 ---
-<BaseLayout title="项目经历" description="独立站运营相关的项目展示；目前为待替换的示例项目。">
+<BaseLayout title="项目经历" description="Yuxuan 的自然流量运营、兼职广告投放和 Shopify 建站经历。">
   <header class="page-hero shell reveal">
     <p class="eyebrow">项目</p>
     <h1 class="page-title">项目经历</h1>
     <div class="intro-row">
-      <p class="lede">这里用示例项目展示页面格式。项目名称、工作内容、截图和成果均为占位内容，后续会替换为可公开的真实经历。</p>
+      <p class="lede">下面整理了我实际参与的三类工作。店铺名称已匿名化，图片为示意图；数据会注明适用范围，避免把店铺整体表现写成个人独立业绩。</p>
       <span>{String(projects.length).padStart(2, '0')} PROJECTS</span>
     </div>
   </header>

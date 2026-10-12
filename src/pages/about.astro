@@ -4,26 +4,22 @@ import SectionHeading from '../components/ui/SectionHeading.astro';
 import ContactSection from '../components/sections/ContactSection.astro';
 import { capabilities, experience } from '../data';
 ---
-<BaseLayout title="关于我" description="雨轩的个人介绍、工作经历、技能和教育背景。">
+<BaseLayout title="关于我" description="Yuxuan 的独立站运营经历与技能。">
   <header class="about-hero shell reveal">
     <div>
       <p class="eyebrow">关于我</p>
-      <h1 class="page-title">你好，我是<em>雨轩。</em></h1>
-    </div>
-    <div class="portrait" role="img" aria-label="个人照片占位区域">
-      <span>照片待补充</span>
+      <h1 class="page-title">你好，我是<em>Yuxuan。</em></h1>
     </div>
   </header>
   <section class="intro shell section-rule">
     <p class="eyebrow">个人介绍</p>
     <div>
-      <p class="big-copy">我目前主要从事<span>跨境电商独立站运营</span>。</p>
-      <p class="lede">接触过 Shopify 网站搭建、产品上架、SEO 内容优化、Google / Meta 广告投放，也会使用 n8n 和 AI 工具制作一些自动化流程。这个页面用于整理我的工作经历和技能；具体任职信息待补充。</p>
-      <a class="button button--ghost" href="/resume/resume-placeholder.txt" download>下载简历（占位版） ↓</a>
+      <p class="big-copy">目前主业是<span>成熟独立站的自然流量运营</span>。</p>
+      <p class="lede">日常工作包括选品与竞品调研、Shopify 产品上架、SEO 和内容更新，以及页面、Banner 和商品图片制作。除此之外，我做过 Shopify 从 0 到 1 建站；兼职运营女士假发独立站时，独立负责选品、建站、支付渠道、上架、广告和社媒。对重复性的上架与数据整理工作，我会使用 n8n、LLM 和 Agent 辅助处理，重要内容仍由自己检查。</p>
     </div>
   </section>
   <section class="section section-rule shell">
-    <SectionHeading eyebrow="工作经历" title="工作经历" description="任职单位、时间和职责尚未提供，以下是待补充字段。" />
+    <SectionHeading eyebrow="工作经历" title="工作经历" description="为了保护隐私，这里按工作内容介绍，省略公司与店铺名称。" />
     <div class="timeline">
       {experience.map((item) => (
         <article>
@@ -40,21 +36,14 @@ import { capabilities, experience } from '../data';
       {capabilities.map((item) => <article><span>{item.index}</span><h3>{item.title}</h3><p>{item.text}</p><div>{item.tags.map((tag) => <small>{tag}</small>)}</div></article>)}
     </div>
   </section>
-  <section class="education section-rule shell">
-    <p class="eyebrow">教育背景</p>
-    <div><h2>学校名称待补充</h2><p>专业、学历和就读时间待补充</p></div>
-  </section>
   <ContactSection />
 </BaseLayout>
 <style>
-  .about-hero { display: grid; grid-template-columns: 1.2fr .55fr; gap: 3rem; align-items: center; padding: clamp(3rem, 7vw, 6rem) 0 3.5rem; }
+  .about-hero { padding: clamp(3rem, 7vw, 6rem) 0 3.5rem; }
   .page-title em { color: var(--sage); font-style: normal; }
-  .portrait { aspect-ratio: 3 / 4; display: grid; place-items: center; background: var(--paper-deep); border: 1px solid var(--line); }
-  .portrait span { color: var(--muted); font-size: .85rem; }
   .intro { display: grid; grid-template-columns: .45fr 1.2fr; gap: 3rem; padding-top: 3.5rem; padding-bottom: 4rem; }
   .big-copy { max-width: 880px; margin: 0 0 1.5rem; font-size: clamp(1.5rem, 3vw, 2.2rem); line-height: 1.3; font-weight: 600; }
   .big-copy span { color: var(--sage); }
-  .intro .button { margin-top: 2rem; }
   .timeline { border-top: 1px solid var(--line); }
   .timeline article { display: grid; grid-template-columns: .45fr .8fr 1fr; gap: 2rem; padding: 1.5rem 0; border-bottom: 1px solid var(--line); }
   time, .company { color: var(--muted); font-size: .76rem; }
@@ -67,8 +56,5 @@ import { capabilities, experience } from '../data';
   .skill-grid h3 { margin: .6rem 0 .5rem; font-size: 1.1rem; font-weight: 600; }
   .skill-grid p { color: var(--muted); font-size: .88rem; }
   .skill-grid small { display: inline-block; margin: 1rem 1rem 0 0; color: var(--sage-dark); }
-  .education { display: grid; grid-template-columns: .45fr 1.2fr; gap: 3rem; padding-top: 3.5rem; padding-bottom: 4rem; }
-  .education h2 { margin: 0; font-size: 1.3rem; font-weight: 600; }
-  .education p { color: var(--muted); }
-  @media (max-width: 720px) { .about-hero { grid-template-columns: 1fr; } .portrait { max-width: 65%; justify-self: end; } .intro, .education { grid-template-columns: 1fr; } .timeline article { grid-template-columns: 1fr; gap: .5rem; } .skill-grid { grid-template-columns: 1fr; } .skill-grid article { padding: 2rem 0; border-right: 0; } }
+  @media (max-width: 720px) { .intro { grid-template-columns: 1fr; } .timeline article { grid-template-columns: 1fr; gap: .5rem; } .skill-grid { grid-template-columns: 1fr; } .skill-grid article { padding: 2rem 0; border-right: 0; } }
 </style>
