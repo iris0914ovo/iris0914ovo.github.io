@@ -1,0 +1,39 @@
+---
+import { site } from '../../data';
+const year = new Date().getFullYear();
+---
+
+<footer>
+  <div class="shell footer-grid">
+    <div>
+      <p class="footer-mark">让网站成为<br /><em>持续生长的资产。</em></p>
+    </div>
+    <div class="footer-meta">
+      <div>
+        <span>联系</span>
+        <a href={`mailto:${site.email}`}>{site.email}</a>
+      </div>
+      <div>
+        <span>社交</span>
+        <a href="#" aria-label="LinkedIn 链接待替换">LinkedIn ↗</a>
+      </div>
+    </div>
+  </div>
+  <div class="shell copyright">
+    <span>© {year} {site.name}</span>
+    <span>Astro · TypeScript · Tailwind CSS</span>
+  </div>
+</footer>
+
+<style>
+  footer { padding: 5rem 0 7rem; border-top: 1px solid var(--line); }
+  .footer-grid { display: grid; grid-template-columns: 1.4fr .6fr; gap: 3rem; align-items: end; }
+  .footer-mark { margin: 0; font-family: var(--font-serif); font-size: clamp(2.2rem, 5vw, 4.5rem); line-height: 1.03; letter-spacing: -.04em; }
+  .footer-mark em { color: var(--sage); font-weight: 400; }
+  .footer-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .footer-meta div { display: flex; flex-direction: column; gap: .45rem; }
+  .footer-meta span { color: var(--muted); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; }
+  .footer-meta a { font-size: .86rem; }
+  .copyright { display: flex; justify-content: space-between; margin-top: 5rem; padding-top: 1.25rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .7rem; letter-spacing: .03em; }
+  @media (max-width: 720px) { .footer-grid { grid-template-columns: 1fr; } .footer-meta { margin-top: 1rem; } .copyright { flex-direction: column; gap: .4rem; } }
+</style>

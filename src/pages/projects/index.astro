@@ -1,0 +1,59 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ui/ProjectCard.astro';
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+const categories = ['全部', ...new Set(projects.map((item) => item.data.category))];
+---
+<BaseLayout title="项目" description="Shopify 建站、增长投放、SEO 与 AI 运营自动化项目案例。">
+  <header class="page-hero shell reveal">
+    <p class="eyebrow">Selected projects</p>
+    <h1 class="page-title">项目不是结果截图，<br /><em>而是判断的过程。</em></h1>
+    <div class="intro-row">
+      <p class="lede">展示我如何理解问题、组织协作并推动结果。当前内容为示例结构，不含真实客户信息或未经授权的业务数据。</p>
+      <span>{String(projects.length).padStart(2, '0')} PROJECTS</span>
+    </div>
+  </header>
+  <section class="project-section shell section-rule">
+    <div class="filters" role="group" aria-label="按类别筛选项目">
+      {categories.map((category, index) => <button type="button" class:list={[index === 0 && 'active']} data-filter={category}>{category}</button>)}
+    </div>
+    <div class="project-grid" aria-live="polite">
+      {projects.map((project) => <ProjectCard project={project} />)}
+    </div>
+    <p class="empty" hidden>这个分类暂时没有项目。</p>
+  </section>
+</BaseLayout>
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
+  const cards = document.querySelectorAll<HTMLElement>('[data-category]');
+  const empty = document.querySelector<HTMLElement>('.empty');
+  buttons.forEach((button) => button.addEventListener('click', () => {
+    buttons.forEach((item) => item.classList.remove('active'));
+    button.classList.add('active');
+    const filter = button.dataset.filter;
+    let visible = 0;
+    cards.forEach((card) => {
+      const show = filter === '全部' || card.dataset.category === filter;
+      card.hidden = !show;
+      if (show) visible += 1;
+    });
+    if (empty) empty.hidden = visible > 0;
+  }));
+</script>
+<style>
+  .page-hero { padding: clamp(4rem, 10vw, 9rem) 0 5rem; }
+  .page-title em { color: var(--sage); font-weight: 400; }
+  .intro-row { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 2rem; margin-top: 3rem; }
+  .intro-row p { margin: 0; }
+  .intro-row span { color: var(--muted); font-size: .64rem; letter-spacing: .12em; }
+  .project-section { padding-top: 2rem; padding-bottom: 8rem; }
+  .filters { display: flex; flex-wrap: wrap; gap: .5rem; margin: 2rem 0 4rem; }
+  .filters button { padding: .55rem .9rem; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: var(--muted); font-size: .75rem; cursor: pointer; }
+  .filters button:hover, .filters button.active { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+  .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem 2rem; }
+  .project-grid :global([hidden]) { display: none; }
+  .project-grid :global(.project-card:nth-child(even)) { margin-top: 6rem; }
+  .empty { color: var(--muted); text-align: center; }
+  @media (max-width: 720px) { .intro-row, .project-grid { grid-template-columns: 1fr; } .intro-row span { display: none; } .project-grid :global(.project-card:nth-child(even)) { margin-top: 0; } }
+</style>

@@ -1,0 +1,31 @@
+---
+import SectionHeading from '../ui/SectionHeading.astro';
+import { capabilities } from '../../data';
+---
+
+<section class="section section-rule">
+  <div class="shell">
+    <SectionHeading eyebrow="Capabilities" title="把复杂的增长问题，拆成可执行的下一步。" description="从站点体验到获客与留存，围绕商业目标连接策略、内容、数据与工具。" />
+    <div class="capability-list">
+      {capabilities.map((item) => (
+        <article>
+          <span class="index">{item.index}</span>
+          <h3>{item.title}</h3>
+          <p>{item.text}</p>
+          <div class="tags">{item.tags.map((tag) => <span class="tag">{tag}</span>)}</div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .capability-list { border-top: 1px solid var(--line); }
+  article { display: grid; grid-template-columns: .25fr .7fr 1.1fr .7fr; gap: 1.5rem; align-items: start; padding: 2rem 0; border-bottom: 1px solid var(--line); transition: padding .25s, background .25s; }
+  article:hover { padding-inline: 1rem; background: var(--card); }
+  .index { color: var(--sage); font-family: var(--font-serif); font-size: 1rem; }
+  h3 { margin: 0; font-family: var(--font-serif); font-size: 1.65rem; font-weight: 400; }
+  p { margin: 0; color: var(--muted); font-size: .9rem; }
+  .tags { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .4rem; }
+  @media (max-width: 820px) { article { grid-template-columns: 2.5rem 1fr; } article p, .tags { grid-column: 2; } .tags { justify-content: flex-start; } }
+</style>
