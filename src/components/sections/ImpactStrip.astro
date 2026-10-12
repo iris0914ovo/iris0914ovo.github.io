@@ -1,0 +1,18 @@
+<section class="impact" aria-label="代表业绩占位">
+  <div class="shell impact-grid">
+    <div><strong>—</strong><span>Shopify 站点交付<br /><small>请填真实项目数</small></span></div>
+    <div><strong>—</strong><span>广告投放管理<br /><small>请填真实预算或市场</small></span></div>
+    <div><strong>—</strong><span>自然流量增长<br /><small>请填真实周期与数据</small></span></div>
+    <div><strong>—</strong><span>自动化效率提升<br /><small>请填真实节省工时</small></span></div>
+  </div>
+</section>
+<style>
+  .impact { padding: 2.5rem 0; background: var(--ink); color: var(--paper); }
+  .impact-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .impact-grid div { display: flex; flex-direction: column; gap: .2rem; padding: .5rem 2rem; border-left: 1px solid color-mix(in srgb, var(--paper) 20%, transparent); }
+  .impact-grid div:first-child { padding-left: 0; border: 0; }
+  strong { color: var(--sage); font-family: var(--font-serif); font-size: 2.2rem; font-weight: 400; }
+  span { font-size: .72rem; letter-spacing: .07em; }
+  small { color: color-mix(in srgb, var(--paper) 58%, transparent); font-size: .6rem; letter-spacing: .03em; }
+  @media (max-width: 650px) { .impact-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem 0; } .impact-grid div:nth-child(3) { padding-left: 0; border: 0; } }
+</style>

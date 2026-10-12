@@ -1,0 +1,8 @@
+个人简历（占位文件）
+
+姓名：你的名字
+方向：Shopify 独立站运营 / 海外增长
+邮箱：hello@example.com
+
+请将此文件替换为 public/resume/resume.pdf，并同步修改 src/pages/about.astro 中的下载链接。
+在公开简历前，请检查手机号、住址、客户名称及业务数据等敏感信息。

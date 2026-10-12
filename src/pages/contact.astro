@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data';
+---
+<BaseLayout title="联系" description="联系我，讨论 Shopify 建站、独立站运营和增长项目。">
+  <section class="contact-page shell reveal">
+    <p class="eyebrow">Contact</p>
+    <h1 class="page-title">好的合作，<br />从一封<em>具体的邮件</em>开始。</h1>
+    <div class="contact-grid">
+      <div class="contact-copy">
+        <p class="lede">如果你正在寻找独立站运营伙伴，或有一个值得认真讨论的项目，请简单介绍背景、目标和时间安排。</p>
+        <a href={`mailto:${site.email}`} class="email">{site.email}<span>↗</span></a>
+      </div>
+      <aside>
+        <div><span>位置</span><p>{site.location}</p></div>
+        <div><span>回复时间</span><p>通常在 1–2 个工作日内</p></div>
+        <div><span>状态</span><p>{site.availability}</p></div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>
+<style>
+  .contact-page { min-height: calc(100svh - 88px); padding-top: clamp(4rem, 10vw, 9rem); padding-bottom: 8rem; }
+  .page-title em { color: var(--sage); font-weight: 400; }
+  .contact-grid { display: grid; grid-template-columns: 1.2fr .6fr; gap: 5rem; margin-top: 5rem; padding-top: 2.5rem; border-top: 1px solid var(--line); }
+  .contact-copy p { margin-top: 0; }
+  .email { display: flex; justify-content: space-between; max-width: 680px; margin-top: 3rem; padding-bottom: .8rem; border-bottom: 1px solid var(--ink); font-family: var(--font-serif); font-size: clamp(1.35rem, 4vw, 2.7rem); }
+  .email span { transition: transform .2s; }
+  .email:hover span { transform: translate(.2rem, -.2rem); }
+  aside { display: flex; flex-direction: column; gap: 1.5rem; }
+  aside div { padding-bottom: 1.2rem; border-bottom: 1px solid var(--line); }
+  aside span { color: var(--muted); font-size: .64rem; letter-spacing: .1em; text-transform: uppercase; }
+  aside p { margin: .3rem 0 0; font-size: .85rem; }
+  @media (max-width: 720px) { .contact-grid { grid-template-columns: 1fr; } }
+</style>
