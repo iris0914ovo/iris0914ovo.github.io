@@ -2,32 +2,21 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { site } from '../data';
 ---
-<BaseLayout title="联系" description="通过邮箱联系雨轩。">
+<BaseLayout title="联系" description="通过邮箱联系 Yuxuan。">
   <section class="contact-page shell reveal">
     <p class="eyebrow">联系方式</p>
     <h1 class="page-title">联系我</h1>
     <div class="contact-grid">
-      <div class="contact-copy">
-        <p class="lede">如果想了解我的工作经历或项目实践，欢迎通过下面的邮箱联系我。</p>
-        <a href={`mailto:${site.email}`} class="email">{site.email}<span>↗</span></a>
-      </div>
-      <aside>
-        <div><span>位置</span><p>{site.location}</p></div>
-        <div><span>状态</span><p>{site.availability}</p></div>
-      </aside>
+      <p class="lede">如果想进一步了解我的工作经历或项目实践，可以通过邮箱联系我。</p>
+      <a href={`mailto:${site.email}`} class="email">{site.email}<span>↗</span></a>
     </div>
   </section>
 </BaseLayout>
 <style>
   .contact-page { min-height: 60svh; padding-top: clamp(3rem, 7vw, 6rem); padding-bottom: 5rem; }
-  .contact-grid { display: grid; grid-template-columns: 1.2fr .6fr; gap: 3rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--line); }
-  .contact-copy p { margin-top: 0; }
+  .contact-grid { max-width: 700px; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--line); }
+  .contact-grid p { margin-top: 0; }
   .email { display: flex; justify-content: space-between; max-width: 680px; margin-top: 2rem; padding-bottom: .8rem; border-bottom: 1px solid var(--sage); color: var(--sage); font-size: clamp(1.15rem, 3vw, 1.8rem); overflow-wrap: anywhere; }
   .email span { transition: transform .2s; }
   .email:hover span { transform: translate(.2rem, -.2rem); }
-  aside { display: flex; flex-direction: column; gap: 1.5rem; }
-  aside div { padding-bottom: 1.2rem; border-bottom: 1px solid var(--line); }
-  aside span { color: var(--muted); font-size: .64rem; letter-spacing: .1em; text-transform: uppercase; }
-  aside p { margin: .3rem 0 0; font-size: .85rem; }
-  @media (max-width: 720px) { .contact-grid { grid-template-columns: 1fr; } }
 </style>

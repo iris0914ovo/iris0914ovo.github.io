@@ -15,7 +15,7 @@ const { Content } = await render(project);
   <article>
     <header class="case-header shell reveal">
       <a class="back" href="/projects/">← 返回项目</a>
-      <p class="eyebrow">示例项目 · {project.data.category}</p>
+      <p class="eyebrow">项目经历 · {project.data.category}</p>
       <h1>{project.data.title}</h1>
       <p class="summary">{project.data.summary}</p>
       <div class="case-meta">
@@ -25,7 +25,7 @@ const { Content } = await render(project);
         <div><span>类型</span><strong>{project.data.year}</strong></div>
       </div>
     </header>
-    <div class="hero-image shell"><img src={project.data.cover} alt={`${project.data.title} 项目封面占位图`} /></div>
+    <div class="hero-image shell"><img src={project.data.cover} alt={`${project.data.title} 项目示意图`} /></div>
     <div class="case-body shell">
       <aside>
         <p>使用的工具与工作内容</p>
@@ -35,12 +35,12 @@ const { Content } = await render(project);
     </div>
     <section class="outcomes shell">
       <p class="eyebrow">结果</p>
-      <h2>实际成果（待补充）</h2>
+      <h2>项目记录</h2>
       <div class="outcome-grid">{project.data.outcomes.map((outcome: string, index: number) => <div><span>0{index + 1}</span><p>{outcome}</p></div>)}</div>
-      <small>本页为示例结构，以上内容不代表真实项目或业绩。后续请替换为可公开的实际成果。</small>
+      <small>数据来自已提供的资料或个人运营记录；匿名项目仅展示可公开的范围。具体口径见项目正文。</small>
     </section>
-    <section class="gallery shell" aria-label="项目截图占位图">
-      {project.data.gallery.map((image: string, index: number) => <img src={image} alt={`${project.data.title} 项目画廊占位图 ${index + 1}`} loading="lazy" />)}
+    <section class="gallery shell" aria-label="项目示意图">
+      {project.data.gallery.map((image: string, index: number) => <img src={image} alt={`${project.data.title} 项目示意图 ${index + 1}`} loading="lazy" />)}
     </section>
     <div class="next shell"><a href="/projects/"><span>继续浏览</span>查看全部项目 <ArrowIcon /></a></div>
   </article>

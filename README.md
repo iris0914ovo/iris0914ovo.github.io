@@ -1,196 +1,85 @@
-# Shopify 独立站运营个人作品集
+# Yuxuan 的独立站运营求职网站
 
-一个面向求职与专业展示的中文个人作品集，使用 **Astro + TypeScript + Tailwind CSS + Markdown Content Collections** 构建，并通过 GitHub Actions 自动部署至 GitHub Pages。
+基于 Astro、TypeScript、Tailwind CSS 和 Markdown Content Collections 的静态个人网站，展示工作经历、技能与项目。使用 GitHub Actions 部署到 GitHub Pages。
 
-网站用于应聘 Shopify / 跨境电商独立站运营相关岗位，展示个人介绍、技能、工作经历和项目实践。设计采用白色、深灰与蓝色，支持响应式布局、深色模式和基础 SEO。
+网站仅公开称呼 **Yuxuan** 和邮箱 `iris0914ovo@gmail.com`。请勿把完整简历、手机号、微信、个人照片、公司或店铺敏感资料放进仓库或 `public/`；这里的文件会随网站公开。项目图片目前均为原创示意图，不是真实店铺或后台截图。
 
-> 姓名“雨轩”和邮箱 `iris0914ovo@gmail.com` 已填写。公司、工作时间、教育背景、照片、正式简历及项目内容仍为占位内容，发布真实资料前请确认可以公开。
+## 本地开发与检查
 
-## 技术栈
-
-- Astro 7（静态站点生成）
-- TypeScript 6（严格模式）
-- Tailwind CSS 4（Vite 集成）
-- Astro Content Collections（Markdown 项目管理与字段校验）
-- GitHub Actions + GitHub Pages（持续部署）
-
-## 本地运行
-
-需要 Node.js 24 和 npm 11 或更高版本。
+需要 Node.js 24、npm 11 或兼容版本。首次安装依赖：
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
-开发服务器默认运行在 `http://localhost:4321`。
-
-常用命令：
+开发服务器默认在 `http://localhost:4321`。提交前运行：
 
 ```bash
-npm run check     # Astro / TypeScript 严格检查
-npm run build     # 检查并生成生产文件到 dist/
-npm run preview   # 本地预览生产构建
+npm run check
+npm run build
 ```
 
-依赖版本由 `package-lock.json` 锁定。CI 和其他机器建议使用 `npm ci`。
+生产文件生成在 `dist/`，可用 `npm run preview` 本地预览。
 
-## 目录结构
+## 内容在哪里修改
 
-```text
-src/
-├── components/
-│   ├── layout/       # Header、Footer
-│   ├── sections/     # 类似 Shopify 主题的可复用页面区块
-│   └── ui/           # ProjectCard、SectionHeading 等基础组件
-├── content/projects/ # 每个项目一个 Markdown 文件
-├── layouts/          # 全站布局、SEO 和主题初始化
-├── pages/            # 首页、项目、关于、联系和 404
-├── styles/           # 全局视觉变量与排版规则
-├── content.config.ts # 项目字段模型与校验规则
-└── data.ts           # 个人资料、能力和工作经历
-public/
-├── images/projects/  # 项目封面和画廊图片
-└── resume/           # 可下载简历
-```
+| 内容 | 文件 |
+| --- | --- |
+| 公开称呼、邮箱、职业简介、技能、经历 | `src/data.ts` |
+| 首页介绍 | `src/components/sections/Hero.astro` |
+| 关于我 | `src/pages/about.astro` |
+| 联系方式 | `src/components/sections/ContactSection.astro`、`src/pages/contact.astro` |
+| 项目列表与详情 | `src/content/projects/*.md` |
+| 社交分享图 | `public/images/og-cover.svg` |
+| 全站配色与排版 | `src/styles/global.css` |
 
-每个首页区块都是独立 Astro 组件。以后需要 AI 新增或修改区块时，优先在 `src/components/sections/` 新建组件，再在页面中按顺序引入，避免把所有内容堆进单一文件。
+网站采用可复用 Section 架构：`src/components/sections/` 中每个组件负责一个区块，首页在 `src/pages/index.astro` 组合它们。新增区块时在该目录建立组件，再在页面中引入即可。不要把私人资料写入 SEO 描述、图片文字、替代文本或页面源代码。
 
-## 发布前必须修改的内容
+## 添加或修改项目
 
-### 1. 个人信息
-
-编辑 `src/data.ts`：
-
-- `name`：姓名或对外使用的英文名（当前为“雨轩”）
-- `role`：职位定位
-- `email`：公开联系邮箱（当前为 `iris0914ovo@gmail.com`）
-- `location`：所在城市与协作方式
-- `description`：用于首页和搜索结果的职业摘要
-- `availability`：当前求职或合作状态
-- `capabilities`：核心能力说明
-- `experience`：真实工作经历
-
-导航左上角显示“雨轩”，位于 `src/components/layout/Header.astro`。工作经历目前只有待补充字段，请在 `src/data.ts` 中填写真实任职信息。
-
-### 2. About 页面
-
-编辑 `src/pages/about.astro`，替换个人故事、照片占位区域、教育背景和简历下载链接。
-
-将正式简历放到 `public/resume/resume.pdf`，然后把页面中的：
-
-```astro
-href="/resume/resume-placeholder.txt"
-```
-
-改为：
-
-```astro
-href="/resume/resume.pdf"
-```
-
-公开前请再次检查手机号、住址、客户名称、账户信息和内部数据。
-
-### 3. SEO 与站点地址
-
-默认部署地址是 `https://iris0914ovo.github.io`，配置在 `astro.config.mjs`。如果使用自定义域名，请修改 `site`，并按 GitHub Pages 要求增加 `public/CNAME`。
-
-默认社交分享图是 `public/images/og-cover.svg`，建议替换为 1200 × 630 的 PNG 或 JPG，同时更新 `src/layouts/BaseLayout.astro` 中的默认图片路径。
-
-### 4. 颜色和视觉
-
-全站视觉变量位于 `src/styles/global.css`：
-
-```css
---paper: #ffffff;
---ink: #202124;
---sage: #2563eb;
-```
-
-同一文件包含深色模式变量、排版、按钮、标签和 Markdown 正文样式。建议优先修改变量，不要在各组件中重复写颜色。
-
-## 添加一个项目
-
-复制任意 `src/content/projects/*.md` 文件并改名，例如 `src/content/projects/new-market-launch.md`，文件名会成为网址 `/projects/new-market-launch/`。
-
-项目文件的完整字段如下：
+每个 Markdown 文件对应一个项目，文件名就是详情页路径，例如 `src/content/projects/new-project.md` 对应 `/projects/new-project/`。可复制已有文件，按以下结构填写：
 
 ```yaml
 ---
 title: "项目标题"
-summary: "一到两句项目摘要"
+summary: "简短介绍"
 category: "建站与体验"
-services: ["Shopify", "产品上架", "页面优化"]
-year: "2026"
-client: "经授权公开的客户名，或匿名描述"
-role: "你的职责"
-duration: "8 周"
+services: ["Shopify", "产品上架"]
+year: "项目类型或年份"
+client: "匿名项目描述"
+role: "实际承担的职责"
+duration: "项目周期"
 cover: "/images/projects/example-cover.webp"
-gallery:
-  - "/images/projects/example-01.webp"
-  - "/images/projects/example-02.webp"
+gallery: ["/images/projects/example-01.webp"]
 outcomes:
-  - "一条真实、可核验且可公开的成果"
-  - "另一条真实成果"
+  - "真实且可公开的项目记录"
 featured: true
-order: 1
+order: 4
 ---
 
-## 项目背景
+## 项目介绍
 
-用 Markdown 编写项目详情……
+用 Markdown 写项目背景、自己的工作、使用的工具、截图说明、实际成果和总结。
 ```
 
-`category` 必须是以下四项之一：
+`category` 可填写 `建站与体验`、`增长与投放`、`SEO 与内容` 或 `AI 自动化`。`featured: true` 会让项目出现在首页；`order` 越小越靠前。现有三个项目已根据个人提供的信息撰写，店铺均匿名；配图仍为示意图。修改业绩前应核对统计周期和口径，尤其不要把成熟店铺整体数据写成个人带来的增量。
 
-- `建站与体验`
-- `增长与投放`
-- `SEO 与内容`
-- `AI 自动化`
+### ROI 的计算口径
 
-`featured: true` 会让项目出现在首页，`order` 数字越小排序越靠前。字段缺失或分类填写错误时，`npm run check` 会直接报错。
+女士假发兼职项目由本人独立运营。网站仅展示 2026 年 9 月的估算 ROI，不公开营收和成本明细。不要把 ROAS（销售额 ÷ 广告费）误写为 ROI。当前 ROI 将销售额扣除提现折损后，以参考汇率换算成人民币，再减去广告、商品、运费和平台费用，差额除以这些费用之和；该周期无退款。因为缺少实际结汇金额，页面明确标注估算与所用汇率。以后若有真实到账记录，请重新计算并更新口径。
 
-写案例时建议说明背景、约束、你的职责、关键判断、实施过程、验证方法与复盘。不要只放结果截图，也不要为了完整感编造数字。
+## 替换图片
 
-## 替换项目图片
+把获得授权的图片放入 `public/images/projects/`，并更新对应 Markdown 的 `cover` 和 `gallery` 路径。建议压缩为 WebP，封面宽度至少 1600px。发布截图前检查店铺名、账户 ID、订单、客户信息、支付资料及内部指标是否需要遮盖。用户提供的原始后台和店铺截图未加入网站。现有 SVG 图片均标注为示意图。
 
-将图片放进 `public/images/projects/`，再修改 Markdown 中的 `cover` 和 `gallery` 路径。
+## 发布到 GitHub Pages
 
-建议：
+1. 在分支上修改并运行 `npm run check && npm run build`。
+2. 创建 Pull Request，审核内容与隐私后合并到 `main`。
+3. 在仓库 **Settings → Pages → Build and deployment** 确认 Source 为 **GitHub Actions**。
+4. 在 **Actions** 中确认 `Deploy to GitHub Pages` 构建与部署成功，再访问 `https://iris0914ovo.github.io/`。
 
-- 封面使用 4:3 或 16:10 比例，宽度至少 1600px
-- 详情图片尽量保持同一项目的视觉比例一致
-- 优先使用 WebP 或经过压缩的 JPG / PNG
-- 为后台、订单、广告账户和用户数据截图脱敏
-- 未获得品牌授权时，用抽象图、局部图或重新制作的数据示意图
+工作流位于 `.github/workflows/deploy.yml`，推送 `main` 后自动使用 `npm ci`、类型检查和生产构建，并把 `dist/` 上传部署。站点地址配置位于 `astro.config.mjs`。如改为自定义域名，应同时修改 `site` 和 Pages 设置。
 
-示例 SVG 全部是原创占位图，可直接删除或替换。
-
-## GitHub Pages 自动部署
-
-仓库已包含 `.github/workflows/deploy.yml`。部署前：
-
-1. 将本地改动提交并推送到 `main` 分支。
-2. 打开 GitHub 仓库的 **Settings → Pages**。
-3. 在 **Build and deployment** 中把 Source 设为 **GitHub Actions**。
-4. 打开 **Actions** 页面，等待 `Deploy to GitHub Pages` 工作流完成。
-5. 访问 `https://iris0914ovo.github.io`。
-
-以后每次推送到 `main`，Actions 都会运行 `npm ci`、严格检查、生产构建并部署 `dist/`。也可以在 Actions 页面手动运行工作流。
-
-如果部署失败，优先查看 Actions 中的 `Build site` 步骤；在本地运行 `npm ci && npm run build` 通常可以复现同一问题。
-
-## 内容安全检查清单
-
-发布前确认：
-
-- 姓名、邮箱、工作经历、教育背景和简历均已确认
-- 示例公司、学校和项目文案已替换或明确保留为示例
-- 所有业绩数字真实、口径明确，并获得公开授权
-- 图片不含订单号、客户姓名、邮箱、广告账户 ID 或内部后台信息
-- 所有项目封面与画廊图片拥有使用权
-- `npm run build` 成功完成
-
-## License
-
-网站代码可按个人需要修改。项目文案、个人资料和图片的版权及披露责任由内容发布者自行确认。
+发布前再次检查：只公开 Yuxuan 与邮箱；所有项目数字有明确来源、周期和归属；图片与文字不泄露公司或个人信息；生产构建通过。
